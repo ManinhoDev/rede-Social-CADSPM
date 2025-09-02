@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const post_controller_1 = require("../controllers/post.controller");
+const comment_controller_1 = require("../controllers/comment.controller");
+const supabase_auth_middleware_1 = require("../middleware/supabase-auth.middleware");
+const router = (0, express_1.Router)();
+router.post('/', supabase_auth_middleware_1.supabaseAuthMiddleware, post_controller_1.createPost);
+router.get('/', supabase_auth_middleware_1.supabaseAuthMiddleware, post_controller_1.getPosts);
+router.get('/mine', supabase_auth_middleware_1.supabaseAuthMiddleware, post_controller_1.getMyPosts);
+router.get('/:postId/comments', supabase_auth_middleware_1.supabaseAuthMiddleware, comment_controller_1.listComments);
+router.post('/:postId/comments', supabase_auth_middleware_1.supabaseAuthMiddleware, comment_controller_1.createComment);
+router.delete('/:postId/comments/:id', supabase_auth_middleware_1.supabaseAuthMiddleware, comment_controller_1.deleteComment);
+router.post('/:id/like', supabase_auth_middleware_1.supabaseAuthMiddleware, post_controller_1.likePost);
+router.delete('/:id/like', supabase_auth_middleware_1.supabaseAuthMiddleware, post_controller_1.unlikePost);
+router.delete('/:id', supabase_auth_middleware_1.supabaseAuthMiddleware, post_controller_1.deletePost);
+exports.default = router;

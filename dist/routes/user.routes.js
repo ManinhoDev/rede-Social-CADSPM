@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const user_controller_1 = require("../controllers/user.controller");
+const supabase_auth_middleware_1 = require("../middleware/supabase-auth.middleware");
+const router = (0, express_1.Router)();
+router.get('/', supabase_auth_middleware_1.supabaseAuthMiddleware, user_controller_1.listUsers);
+router.patch('/me/status', supabase_auth_middleware_1.supabaseAuthMiddleware, user_controller_1.updateMyStatus);
+router.post('/:id/follow', supabase_auth_middleware_1.supabaseAuthMiddleware, user_controller_1.followUser);
+router.delete('/:id/unfollow', supabase_auth_middleware_1.supabaseAuthMiddleware, user_controller_1.unfollowUser);
+exports.default = router;
