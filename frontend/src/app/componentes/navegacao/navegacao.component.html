@@ -2,11 +2,14 @@
   <a class="navbar-brand d-flex align-items-center" routerLink="/feed">
     <img src="/logo.png" alt="Logo CADSPM" class="logo-nav me-2">
     <span class="fw-semibold">CADSPM</span>
-    
   </a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div class="collapse navbar-collapse" id="mainNav" *ngIf="!usuarioLogado">
+    <div class="mx-auto">
+      <button class="btn btn-primary btn-lg" routerLink="/login" [ngClass]="{'active':isRotaAtiva('home')}">Entrar</button>
+    </div>
+  </div>
+
+
   <div class="collapse navbar-collapse" id="mainNav" *ngIf="usuarioLogado">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item"><a class="nav-link" routerLink="/home" [ngClass]="{'active':isRotaAtiva('home')}"><i class="bi bi-house-heart me-1"></i>Home</a></li>
