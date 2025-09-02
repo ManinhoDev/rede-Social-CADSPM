@@ -1,0 +1,356 @@
+.forum-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.cabecalho-forum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.cabecalho-forum h2 {
+  margin: 0;
+  color: #1c1e21;
+}
+
+.btn-novo-topico {
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-novo-topico:hover {
+  background-color: #166fe5;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filtros button {
+  background-color: #f0f2f5;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.filtros button.ativo {
+  background-color: #1877f2;
+  color: white;
+}
+
+.filtros button:hover {
+  background-color: #e4e6eb;
+}
+
+.criar-topico {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.criar-topico h3 {
+  margin: 0 0 1rem 0;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #dddfe2;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.acoes-form {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-confirmar {
+  background-color: #42b883;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cancelar {
+  background-color: #f02849;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.topicos-fixos,
+.topicos-normais {
+  margin-bottom: 2rem;
+}
+
+.topicos-fixos h3,
+.topicos-normais h3 {
+  color: #65676b;
+  margin-bottom: 1rem;
+}
+
+.topico-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topico-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.topico-item.fixo {
+  border-left: 4px solid #ffd700;
+}
+
+.info-topico h4 {
+  margin: 0 0 0.5rem 0;
+  color: #1c1e21;
+}
+
+.info-topico p {
+  margin: 0 0 1rem 0;
+  color: #65676b;
+}
+
+.meta-topico {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: #65676b;
+}
+
+.categoria {
+  background-color: #f0f2f5;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.acoes-topico {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.btn-fixar,
+.btn-deletar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.btn-fixar:hover {
+  background-color: #fffacd;
+}
+
+.btn-deletar:hover {
+  background-color: #ffe4e6;
+}
+
+.visualizacao-topico {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cabecalho-topico {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dddfe2;
+}
+
+.btn-voltar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1877f2;
+  font-size: 1rem;
+}
+
+.cabecalho-topico h2 {
+  margin: 0;
+  flex: 1;
+}
+
+.categoria-topico {
+  background-color: #1877f2;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.descricao-topico {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #dddfe2;
+}
+
+.descricao-topico p {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.info-criador {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #65676b;
+  font-size: 0.9rem;
+}
+
+.mensagens-topico h3 {
+  margin: 0 0 1rem 0;
+  color: #1c1e21;
+}
+
+.lista-mensagens {
+  margin-bottom: 2rem;
+}
+
+.mensagem-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.mensagem-item:last-child {
+  border-bottom: none;
+}
+
+.conteudo-mensagem {
+  flex: 1;
+}
+
+.cabecalho-mensagem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.data-mensagem {
+  font-size: 0.8rem;
+  color: #65676b;
+}
+
+.conteudo-mensagem p {
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.acoes-mensagem {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-curtir {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #65676b;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.btn-curtir:hover {
+  background-color: #f0f2f5;
+}
+
+.enviar-mensagem {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #dddfe2;
+}
+
+.enviar-mensagem textarea {
+  flex: 1;
+  min-height: 80px;
+  padding: 0.75rem;
+  border: 1px solid #dddfe2;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.enviar-mensagem button {
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  padding: 0 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.enviar-mensagem button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.nenhum-topico,
+.nenhuma-mensagem {
+  text-align: center;
+  padding: 2rem;
+  color: #65676b;
+  font-style: italic;
+}
+
+.avatar-pequeno {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}

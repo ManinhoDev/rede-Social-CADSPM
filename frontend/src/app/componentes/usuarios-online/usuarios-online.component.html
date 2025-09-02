@@ -1,0 +1,29 @@
+<div class="usuarios-online-container">
+  <h3>👥 Usuários Online ({{usuariosOnline.length}})</h3>
+  <div class="me-offline" *ngIf="usuarioLogado?.isOnline">
+    <button class="btn-offline" (click)="ficarOffline()">⏻ Ficar Offline</button>
+  </div>
+  
+  <div class="lista-usuarios">
+    <div class="usuario-item" *ngFor="let usuario of usuariosOnline">
+      <div class="info-usuario">
+        <span class="status-online"></span>
+        <img [src]="usuario.avatar" alt="Avatar" class="avatar-pequeno">
+        <span class="nome-usuario">{{usuario.nome}}</span>
+        <span class="badge-admin" *ngIf="usuario.isAdmin">ADMIN</span>
+      </div>
+      
+      <label *ngIf="usuarioLogado?.isAdmin && usuario.id !== usuarioLogado?.id" class="switch">
+        <input type="checkbox" [checked]="usuario.isOnline" (change)="toggleStatusUsuario(usuario)">
+        <span class="slider">
+          <span class="label-on">ON</span>
+          <span class="label-off">OFF</span>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <div class="nenhum-usuario" *ngIf="usuariosOnline.length === 0">
+    <p>Nenhum usuário online no momento</p>
+  </div>
+</div>

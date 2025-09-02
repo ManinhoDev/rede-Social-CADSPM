@@ -1,0 +1,82 @@
+<div class="feed-container container py-3">
+  <div class="criar-publicacao card mb-4 shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title mb-3">O que você está pensando?</h5>
+      <div class="mb-3">
+        <textarea class="form-control" rows="3" [(ngModel)]="novaPublicacao" placeholder="Compartilhe algo com a turma..."></textarea>
+      </div>
+      <button class="btn btn-primary btn-sm" (click)="publicar()">
+        <i class="bi bi-send me-1"></i> Publicar
+      </button>
+    </div>
+  </div>
+
+  <div class="publicacoes row g-3">
+    <div class="publicacao col-12" *ngFor="let publicacao of publicacoes">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <div class="cabecalho-publicacao">
+        <ng-container *ngIf="publicacao.usuarioAvatar; else avatarPadrao">
+          <img [src]="publicacao.usuarioAvatar" alt="Avatar" class="avatar">
+        </ng-container>
+        <ng-template #avatarPadrao>
+          <div class="avatar avatar-fallback d-flex align-items-center justify-content-center">
+            <i class="bi bi-person-circle"></i>
+          </div>
+        </ng-template>
+        <div class="info-usuario">
+          <strong>{{publicacao.usuarioNome}}</strong>
+          <span>{{formatarData(publicacao.data)}}</span>
+        </div>
+        <button *ngIf="podeDeletar(publicacao)" 
+                (click)="deletarPublicacao(publicacao)"
+                class="btn btn-outline-danger btn-sm ms-auto">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+      
+      <!-- Resto do conteúdo permanece igual -->
+      <p class="conteudo-publicacao mt-3 mb-2">{{publicacao.conteudo}}</p>
+      
+      <div class="acoes-publicacao">
+        <button (click)="curtir(publicacao)" class="btn btn-light btn-sm me-2">
+          <i class="bi" [ngClass]="publicacao.liked ? 'bi-hand-thumbs-up-fill text-primary' : 'bi-hand-thumbs-up'"></i>
+          <span class="ms-1 small">Curtir ({{publicacao.curtidas}})</span>
+        </button>
+        <button (click)="toggleComentarios(publicacao.id)" class="btn btn-light btn-sm">
+          <i class="bi bi-chat-dots"></i>
+          <span class="ms-1 small">Comentários ({{publicacao.comentarios.length}})</span>
+        </button>
+      </div>
+      
+      <div class="comentarios" *ngIf="comentarioAtivo === publicacao.id">
+        <div class="novo-comentario">
+          <div class="input-group mt-2">
+            <textarea class="form-control" rows="2" [(ngModel)]="novoComentario" placeholder="Escreva um comentário..."></textarea>
+            <button class="btn btn-primary" (click)="comentar(publicacao)"><i class="bi bi-chat-text"></i></button>
+          </div>
+        </div>
+        
+        <div class="lista-comentarios">
+          <div class="comentario" *ngFor="let comentario of publicacao.comentarios">
+            <ng-container *ngIf="comentario.usuarioAvatar; else comentarioAvatarPadrao">
+              <img [src]="comentario.usuarioAvatar" alt="Avatar" class="avatar-pequeno">
+            </ng-container>
+            <ng-template #comentarioAvatarPadrao>
+              <div class="avatar-pequeno avatar-fallback d-flex align-items-center justify-content-center">
+                <i class="bi bi-person-fill"></i>
+              </div>
+            </ng-template>
+            <div class="conteudo-comentario">
+              <strong>{{comentario.usuarioNome}}</strong>
+              <p>{{comentario.conteudo}}</p>
+              <small>{{formatarData(comentario.data)}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

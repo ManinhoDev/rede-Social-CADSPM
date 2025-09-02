@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
+  <a class="navbar-brand d-flex align-items-center" routerLink="/feed">
+    <img src="/logo.png" alt="Logo CADSPM" class="logo-nav me-2">
+    <span class="fw-semibold">CADSPM</span>
+    
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="mainNav" *ngIf="usuarioLogado">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item"><a class="nav-link" routerLink="/home" [ngClass]="{'active':isRotaAtiva('home')}"><i class="bi bi-house-heart me-1"></i>Home</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/feed" [ngClass]="{'active':isRotaAtiva('feed')}"><i class="bi bi-house-door me-1"></i>Feed</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/forum" [ngClass]="{'active':isRotaAtiva('forum')}"><i class="bi bi-chat-left-text me-1"></i>Fórum</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/chat" [ngClass]="{'active':isRotaAtiva('chat')}"><i class="bi bi-messenger me-1"></i>Chat</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/galeria" [ngClass]="{'active':isRotaAtiva('galeria')}"><i class="bi bi-images me-1"></i>Galeria</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/perfil" [ngClass]="{'active':isRotaAtiva('perfil')}"><i class="bi bi-person-circle me-1"></i>Perfil</a></li>
+      <li class="nav-item" *ngIf="usuarioLogado.isAdmin"><a class="nav-link" routerLink="/admin" [ngClass]="{'active':isRotaAtiva('admin')}"><i class="bi bi-shield-lock me-1"></i>Admin</a></li>
+    </ul>
+    <div class="d-flex align-items-center gap-2 usuario" *ngIf="usuarioLogado">
+      <ng-container *ngIf="usuarioLogado.avatar; else navAvatarPadrao">
+        <img [src]="usuarioLogado.avatar" alt="Avatar" class="avatar">
+      </ng-container>
+      <ng-template #navAvatarPadrao>
+        <div class="avatar avatar-fallback d-flex align-items-center justify-content-center">
+          <i class="bi bi-person-fill"></i>
+        </div>
+      </ng-template>
+      <span class="small">Olá, {{usuarioLogado.nome}}</span>
+      <button (click)="logout()" class="btn btn-sm btn-outline-light d-flex align-items-center"><i class="bi bi-box-arrow-right"></i></button>
+    </div>
+  </div>
+</nav>

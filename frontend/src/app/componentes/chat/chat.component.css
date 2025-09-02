@@ -1,0 +1,152 @@
+.chat-container {
+  display: flex;
+  height: 70vh;
+  border: 1px solid #dddfe2;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lista-contatos {
+  width: 250px;
+  border-right: 1px solid #dddfe2;
+  overflow-y: auto;
+}
+
+.lista-contatos h3 {
+  padding: 1rem;
+  margin: 0;
+  border-bottom: 1px solid #dddfe2;
+  background-color: #f0f2f5;
+}
+
+.contato {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.contato:hover {
+  background-color: #f0f2f5;
+}
+
+.contato.selecionado {
+  background-color: #e7f3ff;
+}
+
+.info-contato {
+  margin-left: 0.75rem;
+}
+
+.info-contato strong {
+  display: block;
+  font-size: 0.9rem;
+}
+
+.info-contato span {
+  font-size: 0.8rem;
+}
+
+.online {
+  color: #42b883;
+}
+
+.offline {
+  color: #65676b;
+}
+
+.area-conversa {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cabecalho-conversa {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #dddfe2;
+  background-color: #f0f2f5;
+}
+
+.info-conversa {
+  margin-left: 0.75rem;
+}
+
+.info-conversa span {
+  font-size: 0.8rem;
+  color: #65676b;
+}
+
+.mensagens {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mensagem {
+  display: flex;
+}
+
+.mensagem.enviada {
+  justify-content: flex-end;
+}
+
+.conteudo-mensagem {
+  max-width: 70%;
+  padding: 0.5rem 1rem;
+  border-radius: 18px;
+  background-color: #f0f2f5;
+}
+
+.mensagem.enviada .conteudo-mensagem {
+  background-color: #1877f2;
+  color: white;
+}
+
+.conteudo-mensagem p {
+  margin: 0;
+}
+
+.conteudo-mensagem .hora {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  display: block;
+  text-align: right;
+}
+
+.entrada-mensagem {
+  display: flex;
+  padding: 1rem;
+  border-top: 1px solid #dddfe2;
+  background-color: #f0f2f5;
+}
+
+.entrada-mensagem input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #dddfe2;
+  border-radius: 20px;
+  margin-right: 0.5rem;
+}
+
+.entrada-mensagem button {
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+.nenhum-contato {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #65676b;
+}

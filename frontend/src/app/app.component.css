@@ -1,0 +1,30 @@
+.conteudo-principal {
+  min-height: calc(100vh - 80px);
+  background-color: #f0f2f5;
+}
+
+.conteudo-logado {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  position: sticky;
+  top: 1.5rem;
+  height: fit-content;
+}
+
+@media (max-width: 900px) {
+  .conteudo-logado {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    position: static;
+    order: 2;
+  }
+}

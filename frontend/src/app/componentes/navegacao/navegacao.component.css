@@ -1,0 +1,5 @@
+/* Ajustes adicionais sobre Bootstrap */
+.logo-nav { height: 42px; width: auto; }
+.usuario .avatar { width: 34px; height:34px; border-radius:50%; object-fit:cover; }
+.navbar-nav .nav-link.active { font-weight:600; text-decoration: underline; }
+.navbar { box-shadow: 0 2px 4px rgba(0,0,0,.08); }

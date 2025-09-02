@@ -1,0 +1,195 @@
+.perfil-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.cabecalho-perfil {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.info-usuario {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.avatar-grande {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.detalhes-usuario h2 {
+  margin: 0 0 0.5rem 0;
+  color: #1c1e21;
+}
+
+.detalhes-usuario p {
+  margin: 0 0 0.5rem 0;
+  color: #65676b;
+}
+
+.status {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.status.online {
+  color: #42b883;
+}
+
+.tipo-usuario {
+  background-color: #1877f2;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.btn-editar {
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-editar:hover {
+  background-color: #166fe5;
+}
+
+.form-edicao {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #dddfe2;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.acoes-form {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-salvar {
+  background-color: #42b883;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cancelar {
+  background-color: #f02849;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.estatisticas-perfil {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.estatistica {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.estatistica .numero {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1877f2;
+}
+
+.estatistica .rotulo {
+  color: #65676b;
+  font-size: 0.9rem;
+}
+
+.publicacoes-perfil {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.publicacoes-perfil h3 {
+  margin: 0 0 1rem 0;
+  color: #1c1e21;
+}
+
+.lista-publicacoes {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.publicacao-perfil {
+  border: 1px solid #dddfe2;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.conteudo-publicacao p {
+  margin: 0 0 0.5rem 0;
+}
+
+.data-publicacao {
+  font-size: 0.8rem;
+  color: #65676b;
+}
+
+.estatisticas-publicacao {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #65676b;
+}
+
+.nenhuma-publicacao {
+  text-align: center;
+  padding: 2rem;
+  color: #65676b;
+  font-style: italic;
+}

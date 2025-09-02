@@ -1,0 +1,68 @@
+<div class="chat-container">
+  <div class="lista-contatos">
+  <h3 class="d-flex align-items-center"><i class="bi bi-chat-dots me-2"></i> Conversas</h3>
+    <div class="contato" 
+         *ngFor="let usuario of usuarios" 
+         [class.selecionado]="usuarioSelecionado?.id === usuario.id"
+         (click)="selecionarUsuario(usuario)">
+      <ng-container *ngIf="usuario.avatar; else chatAvatarPadrao">
+        <img [src]="usuario.avatar" alt="Avatar" class="avatar">
+      </ng-container>
+      <ng-template #chatAvatarPadrao>
+        <div class="avatar avatar-fallback d-flex align-items-center justify-content-center">
+          <i class="bi bi-person-fill"></i>
+        </div>
+      </ng-template>
+      <div class="info-contato">
+        <strong>{{usuario.nome}}</strong>
+        <span class="d-inline-flex align-items-center" *ngIf="usuario.isOnline"><i class="bi bi-circle-fill text-success me-1"></i>Online</span>
+        <span class="d-inline-flex align-items-center" *ngIf="!usuario.isOnline"><i class="bi bi-circle-fill text-secondary me-1"></i>Offline</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="area-conversa" *ngIf="usuarioSelecionado">
+    <div class="cabecalho-conversa">
+      <ng-container *ngIf="usuarioSelecionado.avatar; else chatSelAvatarPadrao">
+        <img [src]="usuarioSelecionado.avatar" alt="Avatar" class="avatar">
+      </ng-container>
+      <ng-template #chatSelAvatarPadrao>
+        <div class="avatar avatar-fallback d-flex align-items-center justify-content-center">
+          <i class="bi bi-person-fill"></i>
+        </div>
+      </ng-template>
+      <div class="info-conversa">
+        <strong>{{usuarioSelecionado.nome}}</strong>
+        <span class="d-inline-flex align-items-center">
+          <i class="bi bi-circle-fill" [ngClass]="usuarioSelecionado.isOnline ? 'text-success' : 'text-secondary'"></i>
+          <span class="ms-1">{{usuarioSelecionado.isOnline ? 'Online' : 'Offline'}}</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="mensagens">
+      <div class="mensagem" 
+           *ngFor="let mensagem of mensagens" 
+           [class.enviada]="mensagem.remetenteId === usuarioLogado?.id">
+        <div class="conteudo-mensagem">
+          <p>{{mensagem.conteudo}}</p>
+          <span class="hora">{{formatarData(mensagem.data)}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="entrada-mensagem">
+      <input type="text" 
+             [(ngModel)]="novaMensagem" 
+             placeholder="Digite uma mensagem..."
+             (keyup.enter)="enviarMensagem()">
+      <button (click)="enviarMensagem()" class="d-flex align-items-center">
+        <i class="bi bi-send"></i><span class="ms-1">Enviar</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="nenhum-contato" *ngIf="!usuarioSelecionado">
+    <p>Selecione um contato para iniciar uma conversa</p>
+  </div>
+</div>

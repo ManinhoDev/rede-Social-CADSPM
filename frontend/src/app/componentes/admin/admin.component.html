@@ -1,0 +1,88 @@
+<div class="admin-container" *ngIf="estatisticas">
+  <h2>Painel de Administração</h2>
+  
+  <div class="estatisticas">
+    <h3>Estatísticas da Rede</h3>
+    <div class="cards-estatisticas">
+      <div class="card">
+        <h4>Usuários</h4>
+        <p class="numero">{{estatisticas.totalUsuarios}}</p>
+        <small>{{estatisticas.usuariosOnline}} online</small>
+      </div>
+      <div class="card">
+        <h4>Publicações</h4>
+        <p class="numero">{{estatisticas.totalPublicacoes}}</p>
+      </div>
+      <div class="card">
+        <h4>Curtidas</h4>
+        <p class="numero">{{estatisticas.totalCurtidas}}</p>
+      </div>
+      <div class="card">
+        <h4>Comentários</h4>
+        <p class="numero">{{estatisticas.totalComentarios}}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="gerenciamento">
+    <div class="secao-gerenciamento">
+      <h3>Gerenciar Usuários</h3>
+      <table class="tabela-usuarios">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Admin</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.email}}</td>
+            <td>
+              <span [class.online]="usuario.isOnline" [class.offline]="!usuario.isOnline">
+                {{usuario.isOnline ? 'Online' : 'Offline'}}
+              </span>
+            </td>
+            <td>{{usuario.isAdmin ? 'Sim' : 'Não'}}</td>
+            <td>
+              <button (click)="alternarStatusUsuario(usuario)" class="btn-status">
+                {{usuario.isOnline ? 'Desconectar' : 'Conectar'}}
+              </button>
+              <button (click)="alternarAdmin(usuario)" 
+                      class="btn-admin" 
+                      [disabled]="usuario.id === 1">
+                {{usuario.isAdmin ? 'Remover Admin' : 'Tornar Admin'}}
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="secao-gerenciamento">
+      <h3>Gerenciar Publicações</h3>
+      <div class="lista-publicacoes">
+        <div class="publicacao-admin" *ngFor="let publicacao of publicacoes">
+          <div class="cabecalho-publicacao">
+            <strong>{{publicacao.usuarioNome}}</strong>
+            <span>{{publicacao.data | date:'dd/MM/yyyy HH:mm'}}</span>
+          </div>
+          <p class="conteudo-publicacao">{{publicacao.conteudo}}</p>
+          <div class="estatisticas-publicacao">
+            <span>👍 {{publicacao.curtidas}}</span>
+            <span>💬 {{publicacao.comentarios.length}}</span>
+          </div>
+          <button (click)="excluirPublicacao(publicacao)" class="btn-excluir">Excluir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="acesso-negado" *ngIf="!estatisticas">
+  <h2>Acesso Negado</h2>
+  <p>Você precisa ser administrador para acessar esta página.</p>
+</div>

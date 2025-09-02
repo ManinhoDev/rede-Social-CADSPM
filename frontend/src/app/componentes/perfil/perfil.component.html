@@ -1,0 +1,90 @@
+<div class="perfil-container" *ngIf="usuario">
+  <div class="cabecalho-perfil">
+    <div class="info-usuario">
+      <ng-container *ngIf="usuario.avatar; else perfilAvatarPadrao">
+        <img [src]="usuario.avatar" alt="Avatar" class="avatar-grande">
+      </ng-container>
+      <ng-template #perfilAvatarPadrao>
+        <div class="avatar-grande avatar-fallback d-flex align-items-center justify-content-center">
+          <i class="bi bi-person-circle"></i>
+        </div>
+      </ng-template>
+      <div class="detalhes-usuario">
+        <h2>{{usuario.nome}}</h2>
+        <p>{{usuario.email}}</p>
+        <span class="status d-inline-flex align-items-center" [class.online]="usuario.isOnline">
+          <i class="bi" [ngClass]="usuario.isOnline ? 'bi-circle-fill text-success' : 'bi-circle-fill text-danger'"></i>
+          <span class="ms-1">{{usuario.isOnline ? 'Online' : 'Offline'}}</span>
+        </span>
+        <button class="btn-toggle-status" (click)="toggleStatusOnline()" [disabled]="atualizandoStatus">
+          <i class="bi" [ngClass]="usuario.isOnline ? 'bi-toggle-off' : 'bi-toggle-on'"></i>
+          <span class="ms-1">{{ usuario.isOnline ? 'Ficar Offline' : 'Ficar Online' }}</span>
+        </button>
+        <span class="tipo-usuario d-inline-flex align-items-center" *ngIf="usuario.isAdmin">
+          <i class="bi bi-shield-lock-fill me-1"></i> Administrador
+        </span>
+      </div>
+    </div>
+    
+    <button (click)="toggleEdicao()" class="btn-editar">
+      <i class="bi" [ngClass]="editando ? 'bi-x-circle' : 'bi-pencil-square'"></i>
+      <span class="ms-1">{{editando ? 'Cancelar' : 'Editar Perfil'}}</span>
+    </button>
+  </div>
+
+  <div class="form-edicao" *ngIf="editando">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" [(ngModel)]="novoNome">
+    </div>
+    
+    <div class="form-group">
+      <label for="avatar">URL do Avatar:</label>
+      <input type="text" id="avatar" [(ngModel)]="novoAvatar" placeholder="Cole a URL de uma imagem">
+    </div>
+    
+    <div class="acoes-form">
+      <button (click)="salvarPerfil()" class="btn-salvar">Salvar</button>
+      <button (click)="cancelarEdicao()" class="btn-cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="estatisticas-perfil">
+    <div class="estatistica">
+      <i class="bi bi-journal-text"></i>
+      <span class="numero ms-1">{{publicacoesUsuario.length}}</span>
+      <span class="rotulo d-block">Publicações</span>
+    </div>
+    <div class="estatistica">
+      <i class="bi bi-hand-thumbs-up"></i>
+      <span class="numero ms-1">{{calcularTotalCurtidas()}}</span>
+      <span class="rotulo d-block">Curtidas</span>
+    </div>
+    <div class="estatistica">
+      <i class="bi bi-chat-dots"></i>
+      <span class="numero ms-1">{{calcularTotalComentarios()}}</span>
+      <span class="rotulo d-block">Comentários</span>
+    </div>
+  </div>
+
+  <div class="publicacoes-perfil">
+    <h3>Suas Publicações</h3>
+    
+    <div class="lista-publicacoes">
+      <div class="publicacao-perfil" *ngFor="let publicacao of publicacoesUsuario">
+        <div class="conteudo-publicacao">
+          <p>{{publicacao.conteudo}}</p>
+          <span class="data-publicacao">{{formatarData(publicacao.data)}}</span>
+        </div>
+        <div class="estatisticas-publicacao">
+          <span class="me-3"><i class="bi bi-hand-thumbs-up"></i> {{publicacao.curtidas}}</span>
+          <span><i class="bi bi-chat-dots"></i> {{publicacao.comentarios.length}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="nenhuma-publicacao" *ngIf="publicacoesUsuario.length === 0">
+      <p>Você ainda não fez nenhuma publicação</p>
+    </div>
+  </div>
+</div>

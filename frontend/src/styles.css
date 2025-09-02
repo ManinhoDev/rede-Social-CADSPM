@@ -1,0 +1,95 @@
+/* Estilos globais */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;
+  color: #1c1e21;
+  line-height: 1.4;
+}
+
+/* Container responsivo */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+}
+
+/* Utilitários responsivos */
+.hidden-mobile {
+  display: block;
+}
+
+.visible-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+  
+  .visible-mobile {
+    display: block !important;
+  }
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Foco acessível */
+button:focus,
+input:focus,
+textarea:focus,
+a:focus {
+  outline: 2px solid #1877f2;
+  outline-offset: 2px;
+}
+
+/* Avatares */
+.avatar, .avatar-pequeno {
+  object-fit: cover;
+  background: #e2e8f0;
+}
+
+.avatar-fallback {
+  background: linear-gradient(135deg,#cbd5e1,#94a3b8);
+  color: #fff;
+  font-size: 1.4rem;
+  border-radius: 50%;
+}
+
+/* Layout responsivo utilitário */
+.flex-wrap { flex-wrap: wrap; }
+.w-100 { width:100%; }
+.mw-100 { max-width:100%; }

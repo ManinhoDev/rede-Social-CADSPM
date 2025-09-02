@@ -1,0 +1,161 @@
+.admin-container {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.estatisticas {
+  margin-bottom: 2rem;
+}
+
+.cards-estatisticas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card h4 {
+  margin: 0 0 0.5rem 0;
+  color: #65676b;
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+.card .numero {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1877f2;
+}
+
+.card small {
+  color: #65676b;
+}
+
+.gerenciamento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.secao-gerenciamento {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tabela-usuarios {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.tabela-usuarios th,
+.tabela-usuarios td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #dddfe2;
+}
+
+.tabela-usuarios th {
+  background-color: #f0f2f5;
+  font-weight: 600;
+}
+
+.online {
+  color: #42b883;
+  font-weight: 500;
+}
+
+.offline {
+  color: #65676b;
+}
+
+.btn-status,
+.btn-admin,
+.btn-excluir {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.btn-status {
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+.btn-admin {
+  background-color: #1877f2;
+  color: white;
+}
+
+.btn-excluir {
+  background-color: #f02849;
+  color: white;
+}
+
+.btn-admin:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.lista-publicacoes {
+  margin-top: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.publicacao-admin {
+  border: 1px solid #dddfe2;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cabecalho-publicacao {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.cabecalho-publicacao span {
+  color: #65676b;
+  font-size: 0.9rem;
+}
+
+.conteudo-publicacao {
+  margin: 0 0 0.5rem 0;
+}
+
+.estatisticas-publicacao {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #65676b;
+}
+
+.acesso-negado {
+  text-align: center;
+  padding: 2rem;
+  color: #65676b;
+}
+
+@media (max-width: 900px) {
+  .gerenciamento {
+    grid-template-columns: 1fr;
+  }
+}
